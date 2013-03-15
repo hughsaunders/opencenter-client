@@ -1,0 +1,13 @@
+{
+  "status": 201,
+  "message": "Adventure Created",
+  "ref": "http://opencenter-server.uk.rs.wherenow.org:8080/adventures/32",
+  "adventure": {
+    "dsl": [
+      "dsl"
+    ],
+    "criteria": "true",
+    "id": 32,
+    "name": "testadventure"
+  }
+}

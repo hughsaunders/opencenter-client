@@ -1,0 +1,13 @@
+{
+  "status": 201,
+  "node": {
+    "name": "testnode",
+    "task_id": null,
+    "adventure_id": null,
+    "attrs": {},
+    "facts": {},
+    "id": 43
+  },
+  "message": "Node Created",
+  "ref": "http://opencenter-server.uk.rs.wherenow.org:8080/nodes/43"
+}

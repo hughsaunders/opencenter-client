@@ -1,0 +1,36 @@
+{
+  "schema": {
+    "dsl": {
+      "read_only": false,
+      "primary_key": false,
+      "required": true,
+      "updatable": true,
+      "unique": false,
+      "type": "JSON"
+    },
+    "criteria": {
+      "read_only": false,
+      "primary_key": false,
+      "required": false,
+      "updatable": true,
+      "unique": false,
+      "type": "VARCHAR(255)"
+    },
+    "id": {
+      "read_only": false,
+      "primary_key": true,
+      "required": true,
+      "updatable": false,
+      "unique": true,
+      "type": "INTEGER"
+    },
+    "name": {
+      "read_only": false,
+      "primary_key": false,
+      "required": true,
+      "updatable": true,
+      "unique": false,
+      "type": "VARCHAR(30)"
+    }
+  }
+}

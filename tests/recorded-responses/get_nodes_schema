@@ -1,0 +1,54 @@
+{
+  "schema": {
+    "name": {
+      "read_only": false,
+      "primary_key": false,
+      "required": true,
+      "updatable": false,
+      "unique": false,
+      "type": "VARCHAR(64)"
+    },
+    "task_id": {
+      "read_only": false,
+      "fk": "tasks.id",
+      "primary_key": false,
+      "required": false,
+      "updatable": true,
+      "unique": false,
+      "type": "INTEGER"
+    },
+    "adventure_id": {
+      "read_only": false,
+      "fk": "adventures.id",
+      "primary_key": false,
+      "required": false,
+      "updatable": true,
+      "unique": false,
+      "type": "INTEGER"
+    },
+    "attrs": {
+      "read_only": true,
+      "primary_key": false,
+      "required": false,
+      "updatable": false,
+      "unique": false,
+      "type": "TEXT"
+    },
+    "facts": {
+      "read_only": true,
+      "primary_key": false,
+      "required": false,
+      "updatable": false,
+      "unique": false,
+      "type": "TEXT"
+    },
+    "id": {
+      "read_only": false,
+      "primary_key": true,
+      "required": true,
+      "updatable": false,
+      "unique": true,
+      "type": "INTEGER"
+    }
+  }
+}

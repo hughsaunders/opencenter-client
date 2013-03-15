@@ -1,0 +1,421 @@
+{
+  "status": 200,
+  "facts": [
+    {
+      "value": 1,
+      "node_id": 2,
+      "id": 1,
+      "key": "parent_id"
+    },
+    {
+      "value": 1,
+      "node_id": 3,
+      "id": 2,
+      "key": "parent_id"
+    },
+    {
+      "value": [
+        "container",
+        "node",
+        "nova"
+      ],
+      "node_id": 1,
+      "id": 3,
+      "key": "backends"
+    },
+    {
+      "value": [
+        "container",
+        "node"
+      ],
+      "node_id": 2,
+      "id": 4,
+      "key": "backends"
+    },
+    {
+      "value": [
+        "container",
+        "node"
+      ],
+      "node_id": 3,
+      "id": 5,
+      "key": "backends"
+    },
+    {
+      "value": [
+        "node",
+        "agent",
+        "nova",
+        "chef-environment",
+        "chef-client"
+      ],
+      "node_id": 4,
+      "id": 6,
+      "key": "backends"
+    },
+    {
+      "value": 14,
+      "node_id": 4,
+      "id": 7,
+      "key": "parent_id"
+    },
+    {
+      "value": [
+        "node",
+        "agent"
+      ],
+      "node_id": 5,
+      "id": 8,
+      "key": "backends"
+    },
+    {
+      "value": 2,
+      "node_id": 5,
+      "id": 9,
+      "key": "parent_id"
+    },
+    {
+      "value": [
+        "node",
+        "agent"
+      ],
+      "node_id": 6,
+      "id": 10,
+      "key": "backends"
+    },
+    {
+      "value": 2,
+      "node_id": 6,
+      "id": 11,
+      "key": "parent_id"
+    },
+    {
+      "value": [
+        "node",
+        "agent",
+        "nova",
+        "chef-environment",
+        "chef-client"
+      ],
+      "node_id": 7,
+      "id": 12,
+      "key": "backends"
+    },
+    {
+      "value": 14,
+      "node_id": 7,
+      "id": 13,
+      "key": "parent_id"
+    },
+    {
+      "value": [
+        "node",
+        "agent"
+      ],
+      "node_id": 8,
+      "id": 14,
+      "key": "backends"
+    },
+    {
+      "value": 3,
+      "node_id": 8,
+      "id": 15,
+      "key": "parent_id"
+    },
+    {
+      "value": [
+        "node",
+        "agent",
+        "nova-controller",
+        "nova",
+        "chef-environment",
+        "chef-client"
+      ],
+      "node_id": 9,
+      "id": 16,
+      "key": "backends"
+    },
+    {
+      "value": 12,
+      "node_id": 9,
+      "id": 17,
+      "key": "parent_id"
+    },
+    {
+      "value": [
+        "node",
+        "agent",
+        "chef-server"
+      ],
+      "node_id": 10,
+      "id": 18,
+      "key": "backends"
+    },
+    {
+      "value": 3,
+      "node_id": 10,
+      "id": 19,
+      "key": "parent_id"
+    },
+    {
+      "value": "admin",
+      "node_id": 10,
+      "id": 20,
+      "key": "chef_server_client_name"
+    },
+    {
+      "value": "-----BEGIN RSA PRIVATE KEY-----\nMIIEpAIBAAKCAQEArobeShg15lxaqPuDlPpRUsWE3pq2qJHIPWhO1giBdLJrQF/N\n2YT7a1I0BXXVRd9n5cnQui9KCaE8YYAkRG4O1Fl7AxNTD+iPboF7hO/NepfYRIU/\n2RVOPXSw9P2K31eUEz+VBrDaX32YSYXpDrFpr7cW4ipynrKgZBsrqFzO7NJmpUKt\nP0sRzKb1AbTLYARCwvmVfTZU7dvyH2pyclR0FizSDWOYeQMq+Ovz7GkhGa4vlfXY\nWPggvzSI4hhMQvtVCdJPvMTGQ2sJisiz7cCdOgucSUWo59KfsrjGdSWNgfhScHJl\nIykJu+2trzcxUbteNnVHbz4LK9lixgArvyKaRQIDAQABAoIBACkiFEX2Ss3OOnfV\nP3/fN0eA0f39DMvSABWo/duoCYrNekWjzspTc0YqC6S1ztw2+S/JTu5ysspuO+Lm\n5qVSIyCdLkbdSRhYwWVUEx6TviQEoa4UkaXCRbxqQkKbdx2IcJfQxnjbObyDx16c\ntv8FhVkql7QaOQV6KB8v4CxAI2zhDdzCKPWAf2KdyOIHrW/Rcjch1z+SBPWjUn3r\ntSSmKra9D3MHYHV+jmCt12/f9che14pSEQbzAl/tp5TTM6SkGyChvKh2Nnn+EI40\nmjuwZVgt22qyC/UX9SiArrJjVbzr0AjdVOVbyvwZV3wFKZEaf3Qwk29GQuP6oNEl\neekpAMECgYEA5ilnyccq9Egk68VRckk15xIwMkHRJ1kzyC7PTrjSRk8cW9b8ek5E\nULarc1w8ReL6gl4M0uW9CN06NR480CZW39ddiJ1j5eQv0ozjGHUAhc+tUQ6C1yFe\n285rmcxL0rMkajmDLMjdv2W0sOHMI6m4WIy1aK4SVkcab4B1lKm3jhkCgYEAwh6T\nsR+YyqE6R46E1ggB73ycd1RNIxyXUpdvbuXWplqkTC4AsybRN/Jttrs2AsDiapr2\nUwg6tOvSfeNNNPq8huLBMfRWlclDD86CdISsUXsWiSPuXV/k/mPSzmceNfsN5lja\n549rI8EvWTIcPCABa/qQLUA7JpYYIz17SqJp2w0CgYBNGBFrxQreSEwVrUJaxasI\ne08phmJIi9iMdSF7fOzyIA2ftaNcVFsNriI/weVug1jl0hr5iXqIPZIBuN8l2bG/\nyKPL3uxXVNev7wEicA58w9OKExJAfS0I81uXaJb9PIQ2EI2fsqiUM70Sgo+eYnsd\nLgSVy7jYrXhtYNoBsdeKAQKBgQCBy0gdam8TLXJ2Xgjbw0boBn3oG+nnzDox8yeD\nExLO8FRiy2+UWiQSMHrDb7HRbX72oN6K7jmytutrWQxKnExqNDvRVvp99LBuZTo9\nBmjholeTIv9CV9gZcE2HzNMabN8CYe8cXXzZz1YFYcgXO583v7WfTA9A4aMKDRXe\n9XGqEQKBgQCfAR5tY+00IXRRAP1TDj8XFq2z56xw7Kdw8uKDc0IHTTeVw7mKMvDg\n/qNyb7qzU+MjEmAtj0pNkYMvH+uWuoHU6p/Ql1GOHhmldJ0fLVguMtCCrj9lZzeH\nv87b2Qo+HVbtE9t5MYDtnIqU+VRO7TS20IgTneHfP8irZGvaTWFcaA==\n-----END RSA PRIVATE KEY-----",
+      "node_id": 10,
+      "id": 21,
+      "key": "chef_server_client_pem"
+    },
+    {
+      "value": "https://162.13.3.221:443",
+      "node_id": 10,
+      "id": 22,
+      "key": "chef_server_uri"
+    },
+    {
+      "value": "-----BEGIN RSA PRIVATE KEY-----\nMIIEowIBAAKCAQEAutONhP8yMbPPjUVyJUrSXiKvS4WiqTzCP2+QiEEeA5tZI4YG\nV8xGvyOrEWcMN1whIA53MlJhHX1qOYCZ8KdmAGyn5kLJeOjXa+26BPU6AH9jNpBi\nvpAklq4KsAQ+9OFFaGvUtAho7XrhENllTmb0Rewu1Y1Hb2clYzEAmQQmvCkerRs4\nTu8JsJvhnIuYTs1o6GQCXBg2NvuhqTgsAPotmYQXqeEqsego5vRLbotKMCbD8QQc\ntKHiOCHwN08ZbAzqKxYjgPNEnRj5XxqCKiw2hI6UpfIDV3z+dVRvmA5HJ3UIeAKo\nGC0EaaC9sZHfIilj1uf8jauw/USJh1AfVDtQJwIDAQABAoIBABA7XSpW+cdzte6y\nP+6Zh5mCLfTD0ZQeoUndqZMNBUyO7Lm3ZUmvh94HfU9vwpH0wTQFzbljiuiDAv2n\n/Lf581TKG/RXjSWiJUVNTEIuBDIS303YUZv47hThXjBYzhd8kwk1hS93I5aufGt4\nV+Lt8v84PAF12uUE8yyhD0o8IBls2xcQHiqRMxKs1VQRFjGTQeH8iNC3Y0+UUzcb\nldCoZpRFTULHDim30fg7OmPZ0oklQ3ooSph+LniOGm+05wudJ7SvoGQpxrxyrX1V\nhm0rVgJTNJlS9jEwr91YOfdSioQ6gp5+8h8tS8wc5CrGie9HDpx/UWefnQTtk1uS\nbmkSZVECgYEA6SCCGPoQN5l4gKg0A3ly/akVNJX2hdyMUmUyUOrDh7nq5kG5cgOl\nL2+07gVLcVLmCUX4eoZGmc4pttFd9OmLeAeG7EkUtmoPwC/uLr9/mc6st7nxWOQy\nVHTDiE+wLu77Dz+a8QehmWn9zval9D3EhWwh6EZ5CkaHeJdquUcUHO0CgYEAzSga\npAWAD97aXTow0IKP8frzUeYiOifqpJ/iYtqWWzXWFuCK8y7v0DDJc+6uEhlq9pST\nd7Q2GleZrK7la1fI9lPJQUx0DPmxpRY4S74KQUcjGlAaOYFHjzRyAJH9FDrEqIR/\nEPpzXaCPllrEJC3QPMMq4g+U/nNcv/VM/IIxEuMCgYAZYWeojnj7hKLg5u8avbsu\nMJ1VZ0o6kqNYSRosQxLckPoo7VjiN9FhE7lP/JWVFeBjfBGsTTgcgJx8AdlH07FS\ndQdUbDRsE6n5U36L6l9bAGw/aGgFNHriRQAQtBRLV8tPgq48tYb7a9WtFZ9Fsv/V\nQsuCPUHqQ3l2QI3m8/0VlQKBgCZMGD0KMc/EoCrLFBW4abqYSBe/yB/nF6xHlHEz\nsOGx+RcoL4gZ+PZ6RQD5S1FhoVAKiETORVNBixRrSbRyHLevCGDCLt/FNN5GeZfa\nD/wDlY/x6BNYCM240pc8qWu/VLrIkRfQSPzvXh6JLxg53Sean0S39+5QBr5mwkpY\n22RVAoGBAIvcj1S1PQz0UCOB3jcYAFHSmysENjMmP6w7y5y713aYwQEbq00F1Hk3\nmappjV6HM/5T+K+RTCvkmiV4S5Yj4wBiqyZGUBmytNx/6R3kIq0NI1WS7+LXLvBV\nrGgK0RxxDWzmRqZfyK0OwejKa2Ki76DgvTKPZ2lyrfcU6W+R169x\n-----END RSA PRIVATE KEY-----",
+      "node_id": 10,
+      "id": 23,
+      "key": "chef_server_pem"
+    },
+    {
+      "value": "current",
+      "node_id": 10,
+      "id": 24,
+      "key": "chef_server_cookbook_channels"
+    },
+    {
+      "value": "v3.0.0",
+      "node_id": 10,
+      "id": 25,
+      "key": "chef_server_cookbook_version"
+    },
+    {
+      "value": 1,
+      "node_id": 11,
+      "id": 26,
+      "key": "parent_id"
+    },
+    {
+      "value": "10.0.0.0/8",
+      "node_id": 11,
+      "id": 27,
+      "key": "osops_public"
+    },
+    {
+      "value": 10,
+      "node_id": 11,
+      "id": 28,
+      "key": "chef_server_consumed"
+    },
+    {
+      "value": "eth0",
+      "node_id": 11,
+      "id": 29,
+      "key": "nova_public_if"
+    },
+    {
+      "value": 16,
+      "node_id": 11,
+      "id": 30,
+      "key": "cpu_allocation_ratio"
+    },
+    {
+      "value": "br100",
+      "node_id": 11,
+      "id": 31,
+      "key": "nova_vm_bridge"
+    },
+    {
+      "value": [
+        "node",
+        "container",
+        "nova",
+        "chef-environment"
+      ],
+      "node_id": 11,
+      "id": 32,
+      "key": "backends"
+    },
+    {
+      "value": "10.0.0.0/8",
+      "node_id": 11,
+      "id": 33,
+      "key": "nova_dmz_cidr"
+    },
+    {
+      "value": false,
+      "node_id": 11,
+      "id": 34,
+      "key": "nova_use_single_default_gateway"
+    },
+    {
+      "value": 1,
+      "node_id": 11,
+      "id": 35,
+      "key": "ram_allocation_ratio"
+    },
+    {
+      "value": "secret",
+      "node_id": 11,
+      "id": 36,
+      "key": "keystone_admin_pw"
+    },
+    {
+      "value": "kvm",
+      "node_id": 11,
+      "id": 37,
+      "key": "libvirt_type"
+    },
+    {
+      "value": "10.0.0.0/8",
+      "node_id": 11,
+      "id": 38,
+      "key": "osops_mgmt"
+    },
+    {
+      "value": "eth1",
+      "node_id": 11,
+      "id": 39,
+      "key": "nova_vm_fixed_if"
+    },
+    {
+      "value": "NovaCluster",
+      "node_id": 11,
+      "id": 40,
+      "key": "chef_environment"
+    },
+    {
+      "value": "novalocal",
+      "node_id": 11,
+      "id": 41,
+      "key": "nova_network_dhcp_name"
+    },
+    {
+      "value": "192.168.0.0/24",
+      "node_id": 11,
+      "id": 42,
+      "key": "nova_vm_fixed_range"
+    },
+    {
+      "value": "10.0.0.0/8",
+      "node_id": 11,
+      "id": 43,
+      "key": "osops_nova"
+    },
+    {
+      "value": 11,
+      "node_id": 12,
+      "id": 44,
+      "key": "parent_id"
+    },
+    {
+      "value": [
+        "node",
+        "container",
+        "nova",
+        "nova-controller"
+      ],
+      "node_id": 12,
+      "id": 45,
+      "key": "backends"
+    },
+    {
+      "value": "nova-controller-master",
+      "node_id": 12,
+      "id": 46,
+      "key": "nova_role"
+    },
+    {
+      "value": false,
+      "node_id": 12,
+      "id": 47,
+      "key": "ha_infra"
+    },
+    {
+      "value": 11,
+      "node_id": 13,
+      "id": 48,
+      "key": "parent_id"
+    },
+    {
+      "value": [
+        "node",
+        "container",
+        "nova",
+        "nova-compute"
+      ],
+      "node_id": 13,
+      "id": 49,
+      "key": "backends"
+    },
+    {
+      "value": "nova-compute",
+      "node_id": 13,
+      "id": 50,
+      "key": "nova_role"
+    },
+    {
+      "value": 13,
+      "node_id": 14,
+      "id": 51,
+      "key": "parent_id"
+    },
+    {
+      "value": "nova",
+      "node_id": 14,
+      "id": 52,
+      "key": "nova_az"
+    },
+    {
+      "value": [
+        "node",
+        "container",
+        "nova"
+      ],
+      "node_id": 14,
+      "id": 53,
+      "key": "backends"
+    },
+    {
+      "value": "_default",
+      "node_id": 9,
+      "id": 54,
+      "key": "chef_environment"
+    },
+    {
+      "value": 10,
+      "node_id": 9,
+      "id": 55,
+      "key": "chef_server_consumed"
+    },
+    {
+      "value": "_default",
+      "node_id": 4,
+      "id": 56,
+      "key": "chef_environment"
+    },
+    {
+      "value": 10,
+      "node_id": 4,
+      "id": 57,
+      "key": "chef_server_consumed"
+    },
+    {
+      "value": "_default",
+      "node_id": 7,
+      "id": 58,
+      "key": "chef_environment"
+    },
+    {
+      "value": 10,
+      "node_id": 7,
+      "id": 59,
+      "key": "chef_server_consumed"
+    }
+  ],
+  "message": "success"
+}

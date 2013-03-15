@@ -1,0 +1,53 @@
+{
+  "schema": {
+    "name": {
+      "read_only": false,
+      "primary_key": false,
+      "required": false,
+      "updatable": true,
+      "unique": false,
+      "type": "VARCHAR(30)"
+    },
+    "expr": {
+      "read_only": false,
+      "primary_key": false,
+      "required": false,
+      "updatable": true,
+      "unique": false,
+      "type": "VARCHAR(255)"
+    },
+    "filter_type": {
+      "read_only": false,
+      "primary_key": false,
+      "required": false,
+      "updatable": true,
+      "unique": false,
+      "type": "VARCHAR(30)"
+    },
+    "parent_id": {
+      "read_only": false,
+      "fk": "filters.id",
+      "primary_key": false,
+      "required": false,
+      "updatable": true,
+      "unique": false,
+      "type": "INTEGER"
+    },
+    "full_expr": {
+      "read_only": true,
+      "primary_key": false,
+      "required": false,
+      "updatable": false,
+      "unique": false,
+      "type": "TEXT"
+    },
+    "id": {
+      "read_only": false,
+      "primary_key": true,
+      "required": true,
+      "updatable": false,
+      "unique": true,
+      "type": "INTEGER"
+    }
+  }
+}

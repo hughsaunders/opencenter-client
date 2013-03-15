@@ -1,0 +1,30 @@
+{
+  "status": 200,
+  "message": "success",
+  "filters": [
+    {
+      "name": "unprovisioned nodes",
+      "expr": "backend='unprovisioned'",
+      "filter_type": "node",
+      "parent_id": null,
+      "full_expr": "backend='unprovisioned'",
+      "id": 1
+    },
+    {
+      "name": "chef client nodes",
+      "expr": "backend='chef-client'",
+      "filter_type": "node",
+      "parent_id": null,
+      "full_expr": "backend='chef-client'",
+      "id": 2
+    },
+    {
+      "name": "chef-server",
+      "expr": "facts.chef_server_uri != None and facts.chef_server_pem != None",
+      "filter_type": "interface",
+      "parent_id": null,
+      "full_expr": "facts.chef_server_uri != None and facts.chef_server_pem != None",
+      "id": 3
+    }
+  ]
+}

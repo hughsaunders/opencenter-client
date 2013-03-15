@@ -1,0 +1,19 @@
+{
+  "status": 201,
+  "message": "Task Created",
+  "task": {
+    "completed": null,
+    "expires": null,
+    "submitted": 1363367181,
+    "payload": [
+      "payload"
+    ],
+    "parent_id": null,
+    "state": "pending",
+    "node_id": "1",
+    "result": {},
+    "action": "adventurate",
+    "id": 14
+  },
+  "ref": "http://opencenter-server.uk.rs.wherenow.org:8080/tasks/14"
+}

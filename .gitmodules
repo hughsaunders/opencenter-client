@@ -1,0 +1,3 @@
+[submodule "tests/libs/httpretty"]
+	path = tests/libs/httpretty
+	url = https://github.com/gabrielfalcao/HTTPretty.git

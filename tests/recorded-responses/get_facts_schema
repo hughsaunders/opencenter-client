@@ -1,0 +1,37 @@
+{
+  "schema": {
+    "value": {
+      "read_only": false,
+      "primary_key": false,
+      "required": false,
+      "updatable": true,
+      "unique": false,
+      "type": "JSON_ENTRY"
+    },
+    "node_id": {
+      "read_only": false,
+      "fk": "nodes.id",
+      "primary_key": false,
+      "required": true,
+      "updatable": false,
+      "unique": false,
+      "type": "INTEGER"
+    },
+    "id": {
+      "read_only": false,
+      "primary_key": true,
+      "required": true,
+      "updatable": false,
+      "unique": true,
+      "type": "INTEGER"
+    },
+    "key": {
+      "read_only": false,
+      "primary_key": false,
+      "required": true,
+      "updatable": false,
+      "unique": false,
+      "type": "VARCHAR(64)"
+    }
+  }
+}

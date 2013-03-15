@@ -1,0 +1,11 @@
+{
+  "status": 201,
+  "message": "Attr Created",
+  "ref": "http://opencenter-server.uk.rs.wherenow.org:8080/attrs/55",
+  "attr": {
+    "value": "testattrvalue",
+    "node_id": 1,
+    "id": 55,
+    "key": "testattrkey"
+  }
+}

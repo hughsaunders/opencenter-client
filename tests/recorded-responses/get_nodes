@@ -1,0 +1,2724 @@
+{
+  "status": 200,
+  "message": "success",
+  "nodes": [
+    {
+      "name": "workspace",
+      "task_id": null,
+      "adventure_id": null,
+      "attrs": {
+        "locked": true,
+        "display_name": "Workspace",
+        "last_task": "ok",
+        "json_schema_version": 1,
+        "testattrkey": "testattrvalue"
+      },
+      "facts": {
+        "backends": [
+          "container",
+          "node",
+          "nova"
+        ]
+      },
+      "id": 1
+    },
+    {
+      "name": "unprovisioned",
+      "task_id": null,
+      "adventure_id": null,
+      "attrs": {
+        "locked": true,
+        "display_name": "Available Nodes"
+      },
+      "facts": {
+        "parent_id": 1,
+        "backends": [
+          "container",
+          "node"
+        ]
+      },
+      "id": 2
+    },
+    {
+      "name": "support",
+      "task_id": null,
+      "adventure_id": null,
+      "attrs": {
+        "locked": true,
+        "display_name": "Service Nodes"
+      },
+      "facts": {
+        "parent_id": 1,
+        "backends": [
+          "container",
+          "node"
+        ]
+      },
+      "id": 3
+    },
+    {
+      "name": "deva-opencenter-client3",
+      "task_id": null,
+      "adventure_id": null,
+      "attrs": {
+        "last_checkin": 1363367147,
+        "opencenter_agent_actions": {
+          "run_chef": {
+            "plugin": "chef",
+            "args": {},
+            "consequences": [],
+            "timeout": 600,
+            "constraints": []
+          },
+          "update_cookbooks": {
+            "plugin": "chef",
+            "args": {},
+            "consequences": [
+              "facts.chef_server_ready := true"
+            ],
+            "timeout": 30,
+            "constraints": []
+          },
+          "service_restart": {
+            "plugin": "service",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "openstack_enable_host": {
+            "plugin": "openstack",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "modules.reload": {
+            "plugin": "modules",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "rollback_install_chef_server": {
+            "plugin": "chef",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "sleep": {
+            "plugin": "sleep",
+            "args": {
+              "sleep_interval": {
+                "required": true,
+                "type": "int"
+              }
+            },
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "service_stop": {
+            "plugin": "service",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "get_updates": {
+            "plugin": "packages",
+            "args": {},
+            "consequences": [],
+            "timeout": 300,
+            "constraints": []
+          },
+          "modules.load": {
+            "plugin": "modules",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "install_chef_server": {
+            "plugin": "chef",
+            "args": {},
+            "consequences": [],
+            "timeout": 600,
+            "constraints": []
+          },
+          "openstack_upload_images": {
+            "plugin": "openstack",
+            "args": {},
+            "consequences": [],
+            "timeout": 300,
+            "constraints": []
+          },
+          "download_cookbooks": {
+            "plugin": "chef",
+            "args": {
+              "CHEF_SERVER_COOKBOOK_CHANNELS": {
+                "type": "evaluated",
+                "expression": "self.facts.chef_server_cookbook_channels"
+              }
+            },
+            "consequences": [],
+            "timeout": 120,
+            "constraints": []
+          },
+          "test": {
+            "plugin": "example",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "get_latest_channel_version": {
+            "plugin": "chef",
+            "args": {
+              "channel_name": {
+                "required": true,
+                "type": "string"
+              }
+            },
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "agent_restart": {
+            "plugin": "agent_restart",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "get_chef_info": {
+            "plugin": "chef",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "logfile.tail": {
+            "plugin": "modules",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "rollback_install_chef": {
+            "plugin": "chef",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "logfile.watch": {
+            "plugin": "modules",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "openstack_evacuate_host": {
+            "plugin": "openstack",
+            "args": {},
+            "consequences": [],
+            "timeout": 1200,
+            "constraints": []
+          },
+          "subscribe_cookbook_channel": {
+            "plugin": "chef",
+            "args": {
+              "channel_name": {
+                "description": "The name of the cookbook channel to subscribe to.",
+                "default": "current",
+                "type": "string",
+                "required": true,
+                "placeholder": "current",
+                "friendly": "Channel Name"
+              }
+            },
+            "consequences": [
+              "facts.chef_server_cookbook_channels := \"{channel_name}\""
+            ],
+            "timeout": 30,
+            "constraints": []
+          },
+          "upgrade_agent": {
+            "plugin": "packages",
+            "args": {},
+            "consequences": [],
+            "timeout": 300,
+            "constraints": []
+          },
+          "install_chef": {
+            "plugin": "chef",
+            "args": {
+              "chef_server": {
+                "required": true,
+                "type": "interface",
+                "name": "chef-server"
+              },
+              "CHEF_SERVER_URL": {
+                "type": "evaluated",
+                "expression": "nodes.{chef_server}.facts.chef_server_uri"
+              },
+              "CHEF_SERVER_PEM": {
+                "type": "evaluated",
+                "expression": "nodes.{chef_server}.facts.chef_server_pem"
+              },
+              "CHEF_SERVER_HOSTNAME": {
+                "type": "evaluated",
+                "expression": "nodes.{chef_server}.name"
+              }
+            },
+            "consequences": [
+              "facts.backends := union(facts.backends, \"chef-client\")",
+              "facts.chef_server_consumed := {chef_server}"
+            ],
+            "timeout": 300,
+            "constraints": []
+          },
+          "files_get": {
+            "plugin": "files",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "do_updates": {
+            "plugin": "packages",
+            "args": {},
+            "consequences": [],
+            "timeout": 600,
+            "constraints": []
+          },
+          "uninstall_chef": {
+            "plugin": "chef",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "service_start": {
+            "plugin": "service",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "get_cookbook_channels": {
+            "plugin": "chef",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "modules.actions": {
+            "plugin": "modules",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "files_list": {
+            "plugin": "files",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "uninstall_chef_server": {
+            "plugin": "chef",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "modules.list": {
+            "plugin": "modules",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "openstack_disable_host": {
+            "plugin": "openstack",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          }
+        },
+        "tac2": "foo",
+        "chef_client_version": "11.2.0",
+        "last_task": "ok",
+        "tac": "foo",
+        "converged": true,
+        "foo": "bar",
+        "opencenter_agent_output_modules": [
+          "modules",
+          "sleep",
+          "files",
+          "chef",
+          "service",
+          "agent_restart",
+          "packages",
+          "openstack",
+          "example"
+        ],
+        "newquay": "the world"
+      },
+      "facts": {
+        "osops_public": "10.0.0.0/8",
+        "chef_server_consumed": 10,
+        "nova_role": "nova-compute",
+        "keystone_admin_pw": "secret",
+        "nova_public_if": "eth0",
+        "nova_use_single_default_gateway": false,
+        "nova_vm_bridge": "br100",
+        "chef_environment": "NovaCluster",
+        "cpu_allocation_ratio": 16,
+        "ram_allocation_ratio": 1,
+        "parent_id": 14,
+        "backends": [
+          "node",
+          "agent",
+          "nova",
+          "chef-environment",
+          "chef-client"
+        ],
+        "osops_mgmt": "10.0.0.0/8",
+        "nova_vm_fixed_if": "eth1",
+        "nova_az": "nova",
+        "libvirt_type": "kvm",
+        "osops_nova": "10.0.0.0/8",
+        "nova_network_dhcp_name": "novalocal",
+        "nova_vm_fixed_range": "192.168.0.0/24",
+        "nova_dmz_cidr": "10.0.0.0/8"
+      },
+      "id": 4
+    },
+    {
+      "name": "deva-opencenter-client5",
+      "task_id": null,
+      "adventure_id": null,
+      "attrs": {
+        "converged": true,
+        "last_checkin": 1363367148,
+        "opencenter_agent_output_modules": [
+          "modules",
+          "sleep",
+          "files",
+          "chef",
+          "service",
+          "agent_restart",
+          "packages",
+          "openstack",
+          "example"
+        ],
+        "opencenter_agent_actions": {
+          "run_chef": {
+            "plugin": "chef",
+            "args": {},
+            "consequences": [],
+            "timeout": 600,
+            "constraints": []
+          },
+          "update_cookbooks": {
+            "plugin": "chef",
+            "args": {},
+            "consequences": [
+              "facts.chef_server_ready := true"
+            ],
+            "timeout": 30,
+            "constraints": []
+          },
+          "service_restart": {
+            "plugin": "service",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "openstack_enable_host": {
+            "plugin": "openstack",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "modules.reload": {
+            "plugin": "modules",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "rollback_install_chef_server": {
+            "plugin": "chef",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "sleep": {
+            "plugin": "sleep",
+            "args": {
+              "sleep_interval": {
+                "required": true,
+                "type": "int"
+              }
+            },
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "service_stop": {
+            "plugin": "service",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "get_updates": {
+            "plugin": "packages",
+            "args": {},
+            "consequences": [],
+            "timeout": 300,
+            "constraints": []
+          },
+          "modules.load": {
+            "plugin": "modules",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "install_chef_server": {
+            "plugin": "chef",
+            "args": {},
+            "consequences": [],
+            "timeout": 600,
+            "constraints": []
+          },
+          "openstack_upload_images": {
+            "plugin": "openstack",
+            "args": {},
+            "consequences": [],
+            "timeout": 300,
+            "constraints": []
+          },
+          "download_cookbooks": {
+            "plugin": "chef",
+            "args": {
+              "CHEF_SERVER_COOKBOOK_CHANNELS": {
+                "type": "evaluated",
+                "expression": "self.facts.chef_server_cookbook_channels"
+              }
+            },
+            "consequences": [],
+            "timeout": 120,
+            "constraints": []
+          },
+          "test": {
+            "plugin": "example",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "get_latest_channel_version": {
+            "plugin": "chef",
+            "args": {
+              "channel_name": {
+                "required": true,
+                "type": "string"
+              }
+            },
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "agent_restart": {
+            "plugin": "agent_restart",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "get_chef_info": {
+            "plugin": "chef",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "logfile.tail": {
+            "plugin": "modules",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "rollback_install_chef": {
+            "plugin": "chef",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "logfile.watch": {
+            "plugin": "modules",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "openstack_evacuate_host": {
+            "plugin": "openstack",
+            "args": {},
+            "consequences": [],
+            "timeout": 1200,
+            "constraints": []
+          },
+          "subscribe_cookbook_channel": {
+            "plugin": "chef",
+            "args": {
+              "channel_name": {
+                "description": "The name of the cookbook channel to subscribe to.",
+                "default": "current",
+                "type": "string",
+                "required": true,
+                "placeholder": "current",
+                "friendly": "Channel Name"
+              }
+            },
+            "consequences": [
+              "facts.chef_server_cookbook_channels := \"{channel_name}\""
+            ],
+            "timeout": 30,
+            "constraints": []
+          },
+          "upgrade_agent": {
+            "plugin": "packages",
+            "args": {},
+            "consequences": [],
+            "timeout": 300,
+            "constraints": []
+          },
+          "install_chef": {
+            "plugin": "chef",
+            "args": {
+              "chef_server": {
+                "required": true,
+                "type": "interface",
+                "name": "chef-server"
+              },
+              "CHEF_SERVER_URL": {
+                "type": "evaluated",
+                "expression": "nodes.{chef_server}.facts.chef_server_uri"
+              },
+              "CHEF_SERVER_PEM": {
+                "type": "evaluated",
+                "expression": "nodes.{chef_server}.facts.chef_server_pem"
+              },
+              "CHEF_SERVER_HOSTNAME": {
+                "type": "evaluated",
+                "expression": "nodes.{chef_server}.name"
+              }
+            },
+            "consequences": [
+              "facts.backends := union(facts.backends, \"chef-client\")",
+              "facts.chef_server_consumed := {chef_server}"
+            ],
+            "timeout": 300,
+            "constraints": []
+          },
+          "files_get": {
+            "plugin": "files",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "do_updates": {
+            "plugin": "packages",
+            "args": {},
+            "consequences": [],
+            "timeout": 600,
+            "constraints": []
+          },
+          "uninstall_chef": {
+            "plugin": "chef",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "service_start": {
+            "plugin": "service",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "get_cookbook_channels": {
+            "plugin": "chef",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "modules.actions": {
+            "plugin": "modules",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "files_list": {
+            "plugin": "files",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "uninstall_chef_server": {
+            "plugin": "chef",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "modules.list": {
+            "plugin": "modules",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "openstack_disable_host": {
+            "plugin": "openstack",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          }
+        }
+      },
+      "facts": {
+        "parent_id": 2,
+        "backends": [
+          "node",
+          "agent"
+        ]
+      },
+      "id": 5
+    },
+    {
+      "name": "deva-opencenter-client6",
+      "task_id": null,
+      "adventure_id": null,
+      "attrs": {
+        "converged": true,
+        "last_checkin": 1363367176,
+        "opencenter_agent_output_modules": [
+          "modules",
+          "sleep",
+          "files",
+          "chef",
+          "service",
+          "agent_restart",
+          "packages",
+          "openstack",
+          "example"
+        ],
+        "opencenter_agent_actions": {
+          "run_chef": {
+            "plugin": "chef",
+            "args": {},
+            "consequences": [],
+            "timeout": 600,
+            "constraints": []
+          },
+          "update_cookbooks": {
+            "plugin": "chef",
+            "args": {},
+            "consequences": [
+              "facts.chef_server_ready := true"
+            ],
+            "timeout": 30,
+            "constraints": []
+          },
+          "service_restart": {
+            "plugin": "service",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "openstack_enable_host": {
+            "plugin": "openstack",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "modules.reload": {
+            "plugin": "modules",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "rollback_install_chef_server": {
+            "plugin": "chef",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "sleep": {
+            "plugin": "sleep",
+            "args": {
+              "sleep_interval": {
+                "required": true,
+                "type": "int"
+              }
+            },
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "service_stop": {
+            "plugin": "service",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "get_updates": {
+            "plugin": "packages",
+            "args": {},
+            "consequences": [],
+            "timeout": 300,
+            "constraints": []
+          },
+          "modules.load": {
+            "plugin": "modules",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "install_chef_server": {
+            "plugin": "chef",
+            "args": {},
+            "consequences": [],
+            "timeout": 600,
+            "constraints": []
+          },
+          "openstack_upload_images": {
+            "plugin": "openstack",
+            "args": {},
+            "consequences": [],
+            "timeout": 300,
+            "constraints": []
+          },
+          "download_cookbooks": {
+            "plugin": "chef",
+            "args": {
+              "CHEF_SERVER_COOKBOOK_CHANNELS": {
+                "type": "evaluated",
+                "expression": "self.facts.chef_server_cookbook_channels"
+              }
+            },
+            "consequences": [],
+            "timeout": 120,
+            "constraints": []
+          },
+          "test": {
+            "plugin": "example",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "get_latest_channel_version": {
+            "plugin": "chef",
+            "args": {
+              "channel_name": {
+                "required": true,
+                "type": "string"
+              }
+            },
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "agent_restart": {
+            "plugin": "agent_restart",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "get_chef_info": {
+            "plugin": "chef",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "logfile.tail": {
+            "plugin": "modules",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "rollback_install_chef": {
+            "plugin": "chef",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "logfile.watch": {
+            "plugin": "modules",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "openstack_evacuate_host": {
+            "plugin": "openstack",
+            "args": {},
+            "consequences": [],
+            "timeout": 1200,
+            "constraints": []
+          },
+          "subscribe_cookbook_channel": {
+            "plugin": "chef",
+            "args": {
+              "channel_name": {
+                "description": "The name of the cookbook channel to subscribe to.",
+                "default": "current",
+                "type": "string",
+                "required": true,
+                "placeholder": "current",
+                "friendly": "Channel Name"
+              }
+            },
+            "consequences": [
+              "facts.chef_server_cookbook_channels := \"{channel_name}\""
+            ],
+            "timeout": 30,
+            "constraints": []
+          },
+          "upgrade_agent": {
+            "plugin": "packages",
+            "args": {},
+            "consequences": [],
+            "timeout": 300,
+            "constraints": []
+          },
+          "install_chef": {
+            "plugin": "chef",
+            "args": {
+              "chef_server": {
+                "required": true,
+                "type": "interface",
+                "name": "chef-server"
+              },
+              "CHEF_SERVER_URL": {
+                "type": "evaluated",
+                "expression": "nodes.{chef_server}.facts.chef_server_uri"
+              },
+              "CHEF_SERVER_PEM": {
+                "type": "evaluated",
+                "expression": "nodes.{chef_server}.facts.chef_server_pem"
+              },
+              "CHEF_SERVER_HOSTNAME": {
+                "type": "evaluated",
+                "expression": "nodes.{chef_server}.name"
+              }
+            },
+            "consequences": [
+              "facts.backends := union(facts.backends, \"chef-client\")",
+              "facts.chef_server_consumed := {chef_server}"
+            ],
+            "timeout": 300,
+            "constraints": []
+          },
+          "files_get": {
+            "plugin": "files",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "do_updates": {
+            "plugin": "packages",
+            "args": {},
+            "consequences": [],
+            "timeout": 600,
+            "constraints": []
+          },
+          "uninstall_chef": {
+            "plugin": "chef",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "service_start": {
+            "plugin": "service",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "get_cookbook_channels": {
+            "plugin": "chef",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "modules.actions": {
+            "plugin": "modules",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "files_list": {
+            "plugin": "files",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "uninstall_chef_server": {
+            "plugin": "chef",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "modules.list": {
+            "plugin": "modules",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "openstack_disable_host": {
+            "plugin": "openstack",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          }
+        }
+      },
+      "facts": {
+        "parent_id": 2,
+        "backends": [
+          "node",
+          "agent"
+        ]
+      },
+      "id": 6
+    },
+    {
+      "name": "deva-opencenter-client4",
+      "task_id": null,
+      "adventure_id": null,
+      "attrs": {
+        "last_checkin": 1363367148,
+        "opencenter_agent_actions": {
+          "run_chef": {
+            "plugin": "chef",
+            "args": {},
+            "consequences": [],
+            "timeout": 600,
+            "constraints": []
+          },
+          "update_cookbooks": {
+            "plugin": "chef",
+            "args": {},
+            "consequences": [
+              "facts.chef_server_ready := true"
+            ],
+            "timeout": 30,
+            "constraints": []
+          },
+          "service_restart": {
+            "plugin": "service",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "openstack_enable_host": {
+            "plugin": "openstack",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "modules.reload": {
+            "plugin": "modules",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "rollback_install_chef_server": {
+            "plugin": "chef",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "sleep": {
+            "plugin": "sleep",
+            "args": {
+              "sleep_interval": {
+                "required": true,
+                "type": "int"
+              }
+            },
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "service_stop": {
+            "plugin": "service",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "get_updates": {
+            "plugin": "packages",
+            "args": {},
+            "consequences": [],
+            "timeout": 300,
+            "constraints": []
+          },
+          "modules.load": {
+            "plugin": "modules",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "install_chef_server": {
+            "plugin": "chef",
+            "args": {},
+            "consequences": [],
+            "timeout": 600,
+            "constraints": []
+          },
+          "openstack_upload_images": {
+            "plugin": "openstack",
+            "args": {},
+            "consequences": [],
+            "timeout": 300,
+            "constraints": []
+          },
+          "download_cookbooks": {
+            "plugin": "chef",
+            "args": {
+              "CHEF_SERVER_COOKBOOK_CHANNELS": {
+                "type": "evaluated",
+                "expression": "self.facts.chef_server_cookbook_channels"
+              }
+            },
+            "consequences": [],
+            "timeout": 120,
+            "constraints": []
+          },
+          "test": {
+            "plugin": "example",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "get_latest_channel_version": {
+            "plugin": "chef",
+            "args": {
+              "channel_name": {
+                "required": true,
+                "type": "string"
+              }
+            },
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "agent_restart": {
+            "plugin": "agent_restart",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "get_chef_info": {
+            "plugin": "chef",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "logfile.tail": {
+            "plugin": "modules",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "rollback_install_chef": {
+            "plugin": "chef",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "logfile.watch": {
+            "plugin": "modules",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "openstack_evacuate_host": {
+            "plugin": "openstack",
+            "args": {},
+            "consequences": [],
+            "timeout": 1200,
+            "constraints": []
+          },
+          "subscribe_cookbook_channel": {
+            "plugin": "chef",
+            "args": {
+              "channel_name": {
+                "description": "The name of the cookbook channel to subscribe to.",
+                "default": "current",
+                "type": "string",
+                "required": true,
+                "placeholder": "current",
+                "friendly": "Channel Name"
+              }
+            },
+            "consequences": [
+              "facts.chef_server_cookbook_channels := \"{channel_name}\""
+            ],
+            "timeout": 30,
+            "constraints": []
+          },
+          "upgrade_agent": {
+            "plugin": "packages",
+            "args": {},
+            "consequences": [],
+            "timeout": 300,
+            "constraints": []
+          },
+          "install_chef": {
+            "plugin": "chef",
+            "args": {
+              "chef_server": {
+                "required": true,
+                "type": "interface",
+                "name": "chef-server"
+              },
+              "CHEF_SERVER_URL": {
+                "type": "evaluated",
+                "expression": "nodes.{chef_server}.facts.chef_server_uri"
+              },
+              "CHEF_SERVER_PEM": {
+                "type": "evaluated",
+                "expression": "nodes.{chef_server}.facts.chef_server_pem"
+              },
+              "CHEF_SERVER_HOSTNAME": {
+                "type": "evaluated",
+                "expression": "nodes.{chef_server}.name"
+              }
+            },
+            "consequences": [
+              "facts.backends := union(facts.backends, \"chef-client\")",
+              "facts.chef_server_consumed := {chef_server}"
+            ],
+            "timeout": 300,
+            "constraints": []
+          },
+          "files_get": {
+            "plugin": "files",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "do_updates": {
+            "plugin": "packages",
+            "args": {},
+            "consequences": [],
+            "timeout": 600,
+            "constraints": []
+          },
+          "uninstall_chef": {
+            "plugin": "chef",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "service_start": {
+            "plugin": "service",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "get_cookbook_channels": {
+            "plugin": "chef",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "modules.actions": {
+            "plugin": "modules",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "files_list": {
+            "plugin": "files",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "uninstall_chef_server": {
+            "plugin": "chef",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "modules.list": {
+            "plugin": "modules",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "openstack_disable_host": {
+            "plugin": "openstack",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          }
+        },
+        "hughtag": "compute2",
+        "chef_client_version": "11.2.0",
+        "last_task": "ok",
+        "converged": true,
+        "opencenter_agent_output_modules": [
+          "modules",
+          "sleep",
+          "files",
+          "chef",
+          "service",
+          "agent_restart",
+          "packages",
+          "openstack",
+          "example"
+        ]
+      },
+      "facts": {
+        "osops_public": "10.0.0.0/8",
+        "chef_server_consumed": 10,
+        "nova_role": "nova-compute",
+        "keystone_admin_pw": "secret",
+        "nova_public_if": "eth0",
+        "nova_use_single_default_gateway": false,
+        "nova_vm_bridge": "br100",
+        "chef_environment": "NovaCluster",
+        "cpu_allocation_ratio": 16,
+        "ram_allocation_ratio": 1,
+        "parent_id": 14,
+        "backends": [
+          "node",
+          "agent",
+          "nova",
+          "chef-environment",
+          "chef-client"
+        ],
+        "osops_mgmt": "10.0.0.0/8",
+        "nova_vm_fixed_if": "eth1",
+        "nova_az": "nova",
+        "libvirt_type": "kvm",
+        "osops_nova": "10.0.0.0/8",
+        "nova_network_dhcp_name": "novalocal",
+        "nova_vm_fixed_range": "192.168.0.0/24",
+        "nova_dmz_cidr": "10.0.0.0/8"
+      },
+      "id": 7
+    },
+    {
+      "name": "deva-opencenter-server",
+      "task_id": null,
+      "adventure_id": null,
+      "attrs": {
+        "converged": true,
+        "last_checkin": 1363367169,
+        "server-agent": true,
+        "opencenter_agent_output_modules": [
+          "modules",
+          "sleep",
+          "files",
+          "chef",
+          "service",
+          "agent_restart",
+          "packages",
+          "openstack",
+          "example",
+          "adventurator"
+        ],
+        "opencenter_agent_actions": {
+          "run_chef": {
+            "plugin": "chef",
+            "args": {},
+            "consequences": [],
+            "timeout": 600,
+            "constraints": []
+          },
+          "update_cookbooks": {
+            "plugin": "chef",
+            "args": {},
+            "consequences": [
+              "facts.chef_server_ready := true"
+            ],
+            "timeout": 30,
+            "constraints": []
+          },
+          "service_restart": {
+            "plugin": "service",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "openstack_enable_host": {
+            "plugin": "openstack",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "modules.reload": {
+            "plugin": "modules",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "rollback_install_chef_server": {
+            "plugin": "chef",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "sleep": {
+            "plugin": "sleep",
+            "args": {
+              "sleep_interval": {
+                "required": true,
+                "type": "int"
+              }
+            },
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "service_stop": {
+            "plugin": "service",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "adventurate": {
+            "plugin": "adventurator",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "get_updates": {
+            "plugin": "packages",
+            "args": {},
+            "consequences": [],
+            "timeout": 300,
+            "constraints": []
+          },
+          "modules.load": {
+            "plugin": "modules",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "install_chef_server": {
+            "plugin": "chef",
+            "args": {},
+            "consequences": [],
+            "timeout": 600,
+            "constraints": []
+          },
+          "openstack_upload_images": {
+            "plugin": "openstack",
+            "args": {},
+            "consequences": [],
+            "timeout": 300,
+            "constraints": []
+          },
+          "download_cookbooks": {
+            "plugin": "chef",
+            "args": {
+              "CHEF_SERVER_COOKBOOK_CHANNELS": {
+                "type": "evaluated",
+                "expression": "self.facts.chef_server_cookbook_channels"
+              }
+            },
+            "consequences": [],
+            "timeout": 120,
+            "constraints": []
+          },
+          "test": {
+            "plugin": "example",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "get_latest_channel_version": {
+            "plugin": "chef",
+            "args": {
+              "channel_name": {
+                "required": true,
+                "type": "string"
+              }
+            },
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "agent_restart": {
+            "plugin": "agent_restart",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "get_chef_info": {
+            "plugin": "chef",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "logfile.tail": {
+            "plugin": "modules",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "rollback_install_chef": {
+            "plugin": "chef",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "logfile.watch": {
+            "plugin": "modules",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "openstack_evacuate_host": {
+            "plugin": "openstack",
+            "args": {},
+            "consequences": [],
+            "timeout": 1200,
+            "constraints": []
+          },
+          "subscribe_cookbook_channel": {
+            "plugin": "chef",
+            "args": {
+              "channel_name": {
+                "description": "The name of the cookbook channel to subscribe to.",
+                "default": "current",
+                "type": "string",
+                "required": true,
+                "placeholder": "current",
+                "friendly": "Channel Name"
+              }
+            },
+            "consequences": [
+              "facts.chef_server_cookbook_channels := \"{channel_name}\""
+            ],
+            "timeout": 30,
+            "constraints": []
+          },
+          "upgrade_agent": {
+            "plugin": "packages",
+            "args": {},
+            "consequences": [],
+            "timeout": 300,
+            "constraints": []
+          },
+          "install_chef": {
+            "plugin": "chef",
+            "args": {
+              "chef_server": {
+                "required": true,
+                "type": "interface",
+                "name": "chef-server"
+              },
+              "CHEF_SERVER_URL": {
+                "type": "evaluated",
+                "expression": "nodes.{chef_server}.facts.chef_server_uri"
+              },
+              "CHEF_SERVER_PEM": {
+                "type": "evaluated",
+                "expression": "nodes.{chef_server}.facts.chef_server_pem"
+              },
+              "CHEF_SERVER_HOSTNAME": {
+                "type": "evaluated",
+                "expression": "nodes.{chef_server}.name"
+              }
+            },
+            "consequences": [
+              "facts.backends := union(facts.backends, \"chef-client\")",
+              "facts.chef_server_consumed := {chef_server}"
+            ],
+            "timeout": 300,
+            "constraints": []
+          },
+          "files_get": {
+            "plugin": "files",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "do_updates": {
+            "plugin": "packages",
+            "args": {},
+            "consequences": [],
+            "timeout": 600,
+            "constraints": []
+          },
+          "uninstall_chef": {
+            "plugin": "chef",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "service_start": {
+            "plugin": "service",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "get_cookbook_channels": {
+            "plugin": "chef",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "modules.actions": {
+            "plugin": "modules",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "files_list": {
+            "plugin": "files",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "uninstall_chef_server": {
+            "plugin": "chef",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "modules.list": {
+            "plugin": "modules",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "openstack_disable_host": {
+            "plugin": "openstack",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          }
+        }
+      },
+      "facts": {
+        "parent_id": 3,
+        "backends": [
+          "node",
+          "agent"
+        ]
+      },
+      "id": 8
+    },
+    {
+      "name": "deva-opencenter-client2",
+      "task_id": null,
+      "adventure_id": null,
+      "attrs": {
+        "last_checkin": 1363367174,
+        "locked": true,
+        "opencenter_agent_actions": {
+          "run_chef": {
+            "plugin": "chef",
+            "args": {},
+            "consequences": [],
+            "timeout": 600,
+            "constraints": []
+          },
+          "update_cookbooks": {
+            "plugin": "chef",
+            "args": {},
+            "consequences": [
+              "facts.chef_server_ready := true"
+            ],
+            "timeout": 30,
+            "constraints": []
+          },
+          "service_restart": {
+            "plugin": "service",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "openstack_enable_host": {
+            "plugin": "openstack",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "modules.reload": {
+            "plugin": "modules",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "rollback_install_chef_server": {
+            "plugin": "chef",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "sleep": {
+            "plugin": "sleep",
+            "args": {
+              "sleep_interval": {
+                "required": true,
+                "type": "int"
+              }
+            },
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "service_stop": {
+            "plugin": "service",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "get_updates": {
+            "plugin": "packages",
+            "args": {},
+            "consequences": [],
+            "timeout": 300,
+            "constraints": []
+          },
+          "modules.load": {
+            "plugin": "modules",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "install_chef_server": {
+            "plugin": "chef",
+            "args": {},
+            "consequences": [],
+            "timeout": 600,
+            "constraints": []
+          },
+          "openstack_upload_images": {
+            "plugin": "openstack",
+            "args": {},
+            "consequences": [],
+            "timeout": 300,
+            "constraints": []
+          },
+          "download_cookbooks": {
+            "plugin": "chef",
+            "args": {
+              "CHEF_SERVER_COOKBOOK_CHANNELS": {
+                "type": "evaluated",
+                "expression": "self.facts.chef_server_cookbook_channels"
+              }
+            },
+            "consequences": [],
+            "timeout": 120,
+            "constraints": []
+          },
+          "test": {
+            "plugin": "example",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "get_latest_channel_version": {
+            "plugin": "chef",
+            "args": {
+              "channel_name": {
+                "required": true,
+                "type": "string"
+              }
+            },
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "agent_restart": {
+            "plugin": "agent_restart",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "get_chef_info": {
+            "plugin": "chef",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "logfile.tail": {
+            "plugin": "modules",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "rollback_install_chef": {
+            "plugin": "chef",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "logfile.watch": {
+            "plugin": "modules",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "openstack_evacuate_host": {
+            "plugin": "openstack",
+            "args": {},
+            "consequences": [],
+            "timeout": 1200,
+            "constraints": []
+          },
+          "subscribe_cookbook_channel": {
+            "plugin": "chef",
+            "args": {
+              "channel_name": {
+                "description": "The name of the cookbook channel to subscribe to.",
+                "default": "current",
+                "type": "string",
+                "required": true,
+                "placeholder": "current",
+                "friendly": "Channel Name"
+              }
+            },
+            "consequences": [
+              "facts.chef_server_cookbook_channels := \"{channel_name}\""
+            ],
+            "timeout": 30,
+            "constraints": []
+          },
+          "upgrade_agent": {
+            "plugin": "packages",
+            "args": {},
+            "consequences": [],
+            "timeout": 300,
+            "constraints": []
+          },
+          "install_chef": {
+            "plugin": "chef",
+            "args": {
+              "chef_server": {
+                "required": true,
+                "type": "interface",
+                "name": "chef-server"
+              },
+              "CHEF_SERVER_URL": {
+                "type": "evaluated",
+                "expression": "nodes.{chef_server}.facts.chef_server_uri"
+              },
+              "CHEF_SERVER_PEM": {
+                "type": "evaluated",
+                "expression": "nodes.{chef_server}.facts.chef_server_pem"
+              },
+              "CHEF_SERVER_HOSTNAME": {
+                "type": "evaluated",
+                "expression": "nodes.{chef_server}.name"
+              }
+            },
+            "consequences": [
+              "facts.backends := union(facts.backends, \"chef-client\")",
+              "facts.chef_server_consumed := {chef_server}"
+            ],
+            "timeout": 300,
+            "constraints": []
+          },
+          "files_get": {
+            "plugin": "files",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "do_updates": {
+            "plugin": "packages",
+            "args": {},
+            "consequences": [],
+            "timeout": 600,
+            "constraints": []
+          },
+          "uninstall_chef": {
+            "plugin": "chef",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "service_start": {
+            "plugin": "service",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "get_cookbook_channels": {
+            "plugin": "chef",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "modules.actions": {
+            "plugin": "modules",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "files_list": {
+            "plugin": "files",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "uninstall_chef_server": {
+            "plugin": "chef",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "modules.list": {
+            "plugin": "modules",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "openstack_disable_host": {
+            "plugin": "openstack",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          }
+        },
+        "chef_client_version": "11.2.0",
+        "last_task": "ok",
+        "converged": true,
+        "opencenter_agent_output_modules": [
+          "modules",
+          "sleep",
+          "files",
+          "chef",
+          "service",
+          "agent_restart",
+          "packages",
+          "openstack",
+          "example"
+        ]
+      },
+      "facts": {
+        "nova_use_single_default_gateway": false,
+        "osops_public": "10.0.0.0/8",
+        "chef_server_consumed": 10,
+        "nova_role": "nova-controller-master",
+        "nova_public_if": "eth0",
+        "keystone_admin_pw": "secret",
+        "nova_vm_bridge": "br100",
+        "chef_environment": "NovaCluster",
+        "cpu_allocation_ratio": 16,
+        "ha_infra": false,
+        "osops_nova": "10.0.0.0/8",
+        "parent_id": 12,
+        "backends": [
+          "node",
+          "agent",
+          "nova-controller",
+          "nova",
+          "chef-environment",
+          "chef-client"
+        ],
+        "osops_mgmt": "10.0.0.0/8",
+        "nova_vm_fixed_if": "eth1",
+        "ram_allocation_ratio": 1,
+        "libvirt_type": "kvm",
+        "nova_network_dhcp_name": "novalocal",
+        "nova_vm_fixed_range": "192.168.0.0/24",
+        "nova_dmz_cidr": "10.0.0.0/8"
+      },
+      "id": 9
+    },
+    {
+      "name": "deva-opencenter-client1",
+      "task_id": null,
+      "adventure_id": null,
+      "attrs": {
+        "opencenter_agent_actions": {
+          "run_chef": {
+            "plugin": "chef",
+            "args": {},
+            "consequences": [],
+            "timeout": 600,
+            "constraints": []
+          },
+          "update_cookbooks": {
+            "plugin": "chef",
+            "args": {},
+            "consequences": [
+              "facts.chef_server_ready := true"
+            ],
+            "timeout": 30,
+            "constraints": []
+          },
+          "service_restart": {
+            "plugin": "service",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "openstack_enable_host": {
+            "plugin": "openstack",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "modules.reload": {
+            "plugin": "modules",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "rollback_install_chef_server": {
+            "plugin": "chef",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "sleep": {
+            "plugin": "sleep",
+            "args": {
+              "sleep_interval": {
+                "required": true,
+                "type": "int"
+              }
+            },
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "service_stop": {
+            "plugin": "service",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "get_updates": {
+            "plugin": "packages",
+            "args": {},
+            "consequences": [],
+            "timeout": 300,
+            "constraints": []
+          },
+          "modules.load": {
+            "plugin": "modules",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "install_chef_server": {
+            "plugin": "chef",
+            "args": {},
+            "consequences": [],
+            "timeout": 600,
+            "constraints": []
+          },
+          "openstack_upload_images": {
+            "plugin": "openstack",
+            "args": {},
+            "consequences": [],
+            "timeout": 300,
+            "constraints": []
+          },
+          "download_cookbooks": {
+            "plugin": "chef",
+            "args": {
+              "CHEF_SERVER_COOKBOOK_CHANNELS": {
+                "type": "evaluated",
+                "expression": "self.facts.chef_server_cookbook_channels"
+              }
+            },
+            "consequences": [],
+            "timeout": 120,
+            "constraints": []
+          },
+          "test": {
+            "plugin": "example",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "get_latest_channel_version": {
+            "plugin": "chef",
+            "args": {
+              "channel_name": {
+                "required": true,
+                "type": "string"
+              }
+            },
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "agent_restart": {
+            "plugin": "agent_restart",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "get_chef_info": {
+            "plugin": "chef",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "logfile.tail": {
+            "plugin": "modules",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "rollback_install_chef": {
+            "plugin": "chef",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "logfile.watch": {
+            "plugin": "modules",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "openstack_evacuate_host": {
+            "plugin": "openstack",
+            "args": {},
+            "consequences": [],
+            "timeout": 1200,
+            "constraints": []
+          },
+          "subscribe_cookbook_channel": {
+            "plugin": "chef",
+            "args": {
+              "channel_name": {
+                "description": "The name of the cookbook channel to subscribe to.",
+                "default": "current",
+                "type": "string",
+                "required": true,
+                "placeholder": "current",
+                "friendly": "Channel Name"
+              }
+            },
+            "consequences": [
+              "facts.chef_server_cookbook_channels := \"{channel_name}\""
+            ],
+            "timeout": 30,
+            "constraints": []
+          },
+          "upgrade_agent": {
+            "plugin": "packages",
+            "args": {},
+            "consequences": [],
+            "timeout": 300,
+            "constraints": []
+          },
+          "install_chef": {
+            "plugin": "chef",
+            "args": {
+              "chef_server": {
+                "required": true,
+                "type": "interface",
+                "name": "chef-server"
+              },
+              "CHEF_SERVER_URL": {
+                "type": "evaluated",
+                "expression": "nodes.{chef_server}.facts.chef_server_uri"
+              },
+              "CHEF_SERVER_PEM": {
+                "type": "evaluated",
+                "expression": "nodes.{chef_server}.facts.chef_server_pem"
+              },
+              "CHEF_SERVER_HOSTNAME": {
+                "type": "evaluated",
+                "expression": "nodes.{chef_server}.name"
+              }
+            },
+            "consequences": [
+              "facts.backends := union(facts.backends, \"chef-client\")",
+              "facts.chef_server_consumed := {chef_server}"
+            ],
+            "timeout": 300,
+            "constraints": []
+          },
+          "files_get": {
+            "plugin": "files",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "do_updates": {
+            "plugin": "packages",
+            "args": {},
+            "consequences": [],
+            "timeout": 600,
+            "constraints": []
+          },
+          "uninstall_chef": {
+            "plugin": "chef",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "service_start": {
+            "plugin": "service",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "get_cookbook_channels": {
+            "plugin": "chef",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "modules.actions": {
+            "plugin": "modules",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "files_list": {
+            "plugin": "files",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "uninstall_chef_server": {
+            "plugin": "chef",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "modules.list": {
+            "plugin": "modules",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          },
+          "openstack_disable_host": {
+            "plugin": "openstack",
+            "args": {},
+            "consequences": [],
+            "timeout": 30,
+            "constraints": []
+          }
+        },
+        "locked": true,
+        "last_checkin": 1363367171,
+        "last_task": "ok",
+        "converged": true,
+        "opencenter_agent_output_modules": [
+          "modules",
+          "sleep",
+          "files",
+          "chef",
+          "service",
+          "agent_restart",
+          "packages",
+          "openstack",
+          "example"
+        ]
+      },
+      "facts": {
+        "chef_server_uri": "https://162.13.3.221:443",
+        "chef_server_cookbook_channels": "current",
+        "chef_server_client_pem": "-----BEGIN RSA PRIVATE KEY-----\nMIIEpAIBAAKCAQEArobeShg15lxaqPuDlPpRUsWE3pq2qJHIPWhO1giBdLJrQF/N\n2YT7a1I0BXXVRd9n5cnQui9KCaE8YYAkRG4O1Fl7AxNTD+iPboF7hO/NepfYRIU/\n2RVOPXSw9P2K31eUEz+VBrDaX32YSYXpDrFpr7cW4ipynrKgZBsrqFzO7NJmpUKt\nP0sRzKb1AbTLYARCwvmVfTZU7dvyH2pyclR0FizSDWOYeQMq+Ovz7GkhGa4vlfXY\nWPggvzSI4hhMQvtVCdJPvMTGQ2sJisiz7cCdOgucSUWo59KfsrjGdSWNgfhScHJl\nIykJu+2trzcxUbteNnVHbz4LK9lixgArvyKaRQIDAQABAoIBACkiFEX2Ss3OOnfV\nP3/fN0eA0f39DMvSABWo/duoCYrNekWjzspTc0YqC6S1ztw2+S/JTu5ysspuO+Lm\n5qVSIyCdLkbdSRhYwWVUEx6TviQEoa4UkaXCRbxqQkKbdx2IcJfQxnjbObyDx16c\ntv8FhVkql7QaOQV6KB8v4CxAI2zhDdzCKPWAf2KdyOIHrW/Rcjch1z+SBPWjUn3r\ntSSmKra9D3MHYHV+jmCt12/f9che14pSEQbzAl/tp5TTM6SkGyChvKh2Nnn+EI40\nmjuwZVgt22qyC/UX9SiArrJjVbzr0AjdVOVbyvwZV3wFKZEaf3Qwk29GQuP6oNEl\neekpAMECgYEA5ilnyccq9Egk68VRckk15xIwMkHRJ1kzyC7PTrjSRk8cW9b8ek5E\nULarc1w8ReL6gl4M0uW9CN06NR480CZW39ddiJ1j5eQv0ozjGHUAhc+tUQ6C1yFe\n285rmcxL0rMkajmDLMjdv2W0sOHMI6m4WIy1aK4SVkcab4B1lKm3jhkCgYEAwh6T\nsR+YyqE6R46E1ggB73ycd1RNIxyXUpdvbuXWplqkTC4AsybRN/Jttrs2AsDiapr2\nUwg6tOvSfeNNNPq8huLBMfRWlclDD86CdISsUXsWiSPuXV/k/mPSzmceNfsN5lja\n549rI8EvWTIcPCABa/qQLUA7JpYYIz17SqJp2w0CgYBNGBFrxQreSEwVrUJaxasI\ne08phmJIi9iMdSF7fOzyIA2ftaNcVFsNriI/weVug1jl0hr5iXqIPZIBuN8l2bG/\nyKPL3uxXVNev7wEicA58w9OKExJAfS0I81uXaJb9PIQ2EI2fsqiUM70Sgo+eYnsd\nLgSVy7jYrXhtYNoBsdeKAQKBgQCBy0gdam8TLXJ2Xgjbw0boBn3oG+nnzDox8yeD\nExLO8FRiy2+UWiQSMHrDb7HRbX72oN6K7jmytutrWQxKnExqNDvRVvp99LBuZTo9\nBmjholeTIv9CV9gZcE2HzNMabN8CYe8cXXzZz1YFYcgXO583v7WfTA9A4aMKDRXe\n9XGqEQKBgQCfAR5tY+00IXRRAP1TDj8XFq2z56xw7Kdw8uKDc0IHTTeVw7mKMvDg\n/qNyb7qzU+MjEmAtj0pNkYMvH+uWuoHU6p/Ql1GOHhmldJ0fLVguMtCCrj9lZzeH\nv87b2Qo+HVbtE9t5MYDtnIqU+VRO7TS20IgTneHfP8irZGvaTWFcaA==\n-----END RSA PRIVATE KEY-----",
+        "parent_id": 3,
+        "backends": [
+          "node",
+          "agent",
+          "chef-server"
+        ],
+        "chef_server_pem": "-----BEGIN RSA PRIVATE KEY-----\nMIIEowIBAAKCAQEAutONhP8yMbPPjUVyJUrSXiKvS4WiqTzCP2+QiEEeA5tZI4YG\nV8xGvyOrEWcMN1whIA53MlJhHX1qOYCZ8KdmAGyn5kLJeOjXa+26BPU6AH9jNpBi\nvpAklq4KsAQ+9OFFaGvUtAho7XrhENllTmb0Rewu1Y1Hb2clYzEAmQQmvCkerRs4\nTu8JsJvhnIuYTs1o6GQCXBg2NvuhqTgsAPotmYQXqeEqsego5vRLbotKMCbD8QQc\ntKHiOCHwN08ZbAzqKxYjgPNEnRj5XxqCKiw2hI6UpfIDV3z+dVRvmA5HJ3UIeAKo\nGC0EaaC9sZHfIilj1uf8jauw/USJh1AfVDtQJwIDAQABAoIBABA7XSpW+cdzte6y\nP+6Zh5mCLfTD0ZQeoUndqZMNBUyO7Lm3ZUmvh94HfU9vwpH0wTQFzbljiuiDAv2n\n/Lf581TKG/RXjSWiJUVNTEIuBDIS303YUZv47hThXjBYzhd8kwk1hS93I5aufGt4\nV+Lt8v84PAF12uUE8yyhD0o8IBls2xcQHiqRMxKs1VQRFjGTQeH8iNC3Y0+UUzcb\nldCoZpRFTULHDim30fg7OmPZ0oklQ3ooSph+LniOGm+05wudJ7SvoGQpxrxyrX1V\nhm0rVgJTNJlS9jEwr91YOfdSioQ6gp5+8h8tS8wc5CrGie9HDpx/UWefnQTtk1uS\nbmkSZVECgYEA6SCCGPoQN5l4gKg0A3ly/akVNJX2hdyMUmUyUOrDh7nq5kG5cgOl\nL2+07gVLcVLmCUX4eoZGmc4pttFd9OmLeAeG7EkUtmoPwC/uLr9/mc6st7nxWOQy\nVHTDiE+wLu77Dz+a8QehmWn9zval9D3EhWwh6EZ5CkaHeJdquUcUHO0CgYEAzSga\npAWAD97aXTow0IKP8frzUeYiOifqpJ/iYtqWWzXWFuCK8y7v0DDJc+6uEhlq9pST\nd7Q2GleZrK7la1fI9lPJQUx0DPmxpRY4S74KQUcjGlAaOYFHjzRyAJH9FDrEqIR/\nEPpzXaCPllrEJC3QPMMq4g+U/nNcv/VM/IIxEuMCgYAZYWeojnj7hKLg5u8avbsu\nMJ1VZ0o6kqNYSRosQxLckPoo7VjiN9FhE7lP/JWVFeBjfBGsTTgcgJx8AdlH07FS\ndQdUbDRsE6n5U36L6l9bAGw/aGgFNHriRQAQtBRLV8tPgq48tYb7a9WtFZ9Fsv/V\nQsuCPUHqQ3l2QI3m8/0VlQKBgCZMGD0KMc/EoCrLFBW4abqYSBe/yB/nF6xHlHEz\nsOGx+RcoL4gZ+PZ6RQD5S1FhoVAKiETORVNBixRrSbRyHLevCGDCLt/FNN5GeZfa\nD/wDlY/x6BNYCM240pc8qWu/VLrIkRfQSPzvXh6JLxg53Sean0S39+5QBr5mwkpY\n22RVAoGBAIvcj1S1PQz0UCOB3jcYAFHSmysENjMmP6w7y5y713aYwQEbq00F1Hk3\nmappjV6HM/5T+K+RTCvkmiV4S5Yj4wBiqyZGUBmytNx/6R3kIq0NI1WS7+LXLvBV\nrGgK0RxxDWzmRqZfyK0OwejKa2Ki76DgvTKPZ2lyrfcU6W+R169x\n-----END RSA PRIVATE KEY-----",
+        "chef_server_client_name": "admin",
+        "chef_server_cookbook_version": "v3.0.0"
+      },
+      "id": 10
+    },
+    {
+      "name": "NovaCluster",
+      "task_id": null,
+      "adventure_id": null,
+      "attrs": {
+        "locked": true
+      },
+      "facts": {
+        "parent_id": 1,
+        "osops_public": "10.0.0.0/8",
+        "chef_server_consumed": 10,
+        "nova_public_if": "eth0",
+        "cpu_allocation_ratio": 16,
+        "nova_vm_bridge": "br100",
+        "backends": [
+          "node",
+          "container",
+          "nova",
+          "chef-environment"
+        ],
+        "chef_environment": "NovaCluster",
+        "nova_use_single_default_gateway": false,
+        "ram_allocation_ratio": 1,
+        "osops_nova": "10.0.0.0/8",
+        "keystone_admin_pw": "secret",
+        "libvirt_type": "kvm",
+        "osops_mgmt": "10.0.0.0/8",
+        "nova_vm_fixed_if": "eth1",
+        "nova_network_dhcp_name": "novalocal",
+        "nova_vm_fixed_range": "192.168.0.0/24",
+        "nova_dmz_cidr": "10.0.0.0/8"
+      },
+      "id": 11
+    },
+    {
+      "name": "Infrastructure",
+      "task_id": null,
+      "adventure_id": null,
+      "attrs": {
+        "locked": true
+      },
+      "facts": {
+        "nova_dmz_cidr": "10.0.0.0/8",
+        "osops_public": "10.0.0.0/8",
+        "nova_role": "nova-controller-master",
+        "keystone_admin_pw": "secret",
+        "nova_public_if": "eth0",
+        "cpu_allocation_ratio": 16,
+        "nova_vm_bridge": "br100",
+        "chef_environment": "NovaCluster",
+        "nova_use_single_default_gateway": false,
+        "ha_infra": false,
+        "osops_nova": "10.0.0.0/8",
+        "parent_id": 11,
+        "backends": [
+          "node",
+          "container",
+          "nova",
+          "nova-controller"
+        ],
+        "osops_mgmt": "10.0.0.0/8",
+        "nova_vm_fixed_if": "eth1",
+        "libvirt_type": "kvm",
+        "nova_network_dhcp_name": "novalocal",
+        "nova_vm_fixed_range": "192.168.0.0/24",
+        "ram_allocation_ratio": 1
+      },
+      "id": 12
+    },
+    {
+      "name": "Compute",
+      "task_id": null,
+      "adventure_id": null,
+      "attrs": {
+        "locked": true
+      },
+      "facts": {
+        "nova_dmz_cidr": "10.0.0.0/8",
+        "osops_public": "10.0.0.0/8",
+        "nova_role": "nova-compute",
+        "keystone_admin_pw": "secret",
+        "nova_public_if": "eth0",
+        "cpu_allocation_ratio": 16,
+        "nova_vm_bridge": "br100",
+        "chef_environment": "NovaCluster",
+        "nova_use_single_default_gateway": false,
+        "osops_nova": "10.0.0.0/8",
+        "parent_id": 11,
+        "backends": [
+          "node",
+          "container",
+          "nova",
+          "nova-compute"
+        ],
+        "osops_mgmt": "10.0.0.0/8",
+        "nova_vm_fixed_if": "eth1",
+        "libvirt_type": "kvm",
+        "nova_network_dhcp_name": "novalocal",
+        "nova_vm_fixed_range": "192.168.0.0/24",
+        "ram_allocation_ratio": 1
+      },
+      "id": 13
+    },
+    {
+      "name": "AZ nova",
+      "task_id": null,
+      "adventure_id": null,
+      "attrs": {},
+      "facts": {
+        "nova_use_single_default_gateway": false,
+        "osops_public": "10.0.0.0/8",
+        "nova_network_dhcp_name": "novalocal",
+        "nova_role": "nova-compute",
+        "nova_public_if": "eth0",
+        "keystone_admin_pw": "secret",
+        "nova_vm_bridge": "br100",
+        "nova_dmz_cidr": "10.0.0.0/8",
+        "cpu_allocation_ratio": 16,
+        "ram_allocation_ratio": 1,
+        "osops_nova": "10.0.0.0/8",
+        "parent_id": 13,
+        "backends": [
+          "node",
+          "container",
+          "nova"
+        ],
+        "osops_mgmt": "10.0.0.0/8",
+        "nova_vm_fixed_if": "eth1",
+        "libvirt_type": "kvm",
+        "nova_az": "nova",
+        "nova_vm_fixed_range": "192.168.0.0/24",
+        "chef_environment": "NovaCluster"
+      },
+      "id": 14
+    },
+    {
+      "name": "newnode",
+      "task_id": null,
+      "adventure_id": null,
+      "attrs": {},
+      "facts": {},
+      "id": 15
+    },
+    {
+      "name": "newnode",
+      "task_id": null,
+      "adventure_id": null,
+      "attrs": {},
+      "facts": {},
+      "id": 16
+    },
+    {
+      "name": "testnode",
+      "task_id": null,
+      "adventure_id": null,
+      "attrs": {},
+      "facts": {},
+      "id": 17
+    },
+    {
+      "name": "newnode",
+      "task_id": null,
+      "adventure_id": null,
+      "attrs": {},
+      "facts": {},
+      "id": 18
+    },
+    {
+      "name": "testnode",
+      "task_id": null,
+      "adventure_id": null,
+      "attrs": {},
+      "facts": {},
+      "id": 19
+    },
+    {
+      "name": "newnode",
+      "task_id": null,
+      "adventure_id": null,
+      "attrs": {},
+      "facts": {},
+      "id": 20
+    },
+    {
+      "name": "testnode",
+      "task_id": null,
+      "adventure_id": null,
+      "attrs": {},
+      "facts": {},
+      "id": 21
+    },
+    {
+      "name": "newnode",
+      "task_id": null,
+      "adventure_id": null,
+      "attrs": {},
+      "facts": {},
+      "id": 22
+    },
+    {
+      "name": "testnode",
+      "task_id": null,
+      "adventure_id": null,
+      "attrs": {},
+      "facts": {},
+      "id": 23
+    },
+    {
+      "name": "newnode",
+      "task_id": null,
+      "adventure_id": null,
+      "attrs": {},
+      "facts": {},
+      "id": 24
+    },
+    {
+      "name": "testnode",
+      "task_id": null,
+      "adventure_id": null,
+      "attrs": {},
+      "facts": {},
+      "id": 25
+    },
+    {
+      "name": "newnode",
+      "task_id": null,
+      "adventure_id": null,
+      "attrs": {},
+      "facts": {},
+      "id": 26
+    },
+    {
+      "name": "testnode",
+      "task_id": null,
+      "adventure_id": null,
+      "attrs": {},
+      "facts": {},
+      "id": 27
+    },
+    {
+      "name": "newnode",
+      "task_id": null,
+      "adventure_id": null,
+      "attrs": {},
+      "facts": {},
+      "id": 28
+    },
+    {
+      "name": "testnode",
+      "task_id": null,
+      "adventure_id": null,
+      "attrs": {},
+      "facts": {},
+      "id": 29
+    },
+    {
+      "name": "newnode",
+      "task_id": null,
+      "adventure_id": null,
+      "attrs": {},
+      "facts": {},
+      "id": 30
+    },
+    {
+      "name": "testnode",
+      "task_id": null,
+      "adventure_id": null,
+      "attrs": {},
+      "facts": {},
+      "id": 31
+    },
+    {
+      "name": "newnode",
+      "task_id": null,
+      "adventure_id": null,
+      "attrs": {},
+      "facts": {},
+      "id": 32
+    },
+    {
+      "name": "testnode",
+      "task_id": null,
+      "adventure_id": null,
+      "attrs": {},
+      "facts": {},
+      "id": 33
+    },
+    {
+      "name": "newnode",
+      "task_id": null,
+      "adventure_id": null,
+      "attrs": {},
+      "facts": {},
+      "id": 34
+    },
+    {
+      "name": "testnode",
+      "task_id": null,
+      "adventure_id": null,
+      "attrs": {},
+      "facts": {},
+      "id": 35
+    },
+    {
+      "name": "newnode",
+      "task_id": null,
+      "adventure_id": null,
+      "attrs": {},
+      "facts": {},
+      "id": 36
+    },
+    {
+      "name": "testnode",
+      "task_id": null,
+      "adventure_id": null,
+      "attrs": {},
+      "facts": {},
+      "id": 37
+    },
+    {
+      "name": "newnode",
+      "task_id": null,
+      "adventure_id": null,
+      "attrs": {},
+      "facts": {},
+      "id": 38
+    },
+    {
+      "name": "testnode",
+      "task_id": null,
+      "adventure_id": null,
+      "attrs": {},
+      "facts": {},
+      "id": 39
+    },
+    {
+      "name": "newnode",
+      "task_id": null,
+      "adventure_id": null,
+      "attrs": {},
+      "facts": {},
+      "id": 40
+    },
+    {
+      "name": "testnode",
+      "task_id": null,
+      "adventure_id": null,
+      "attrs": {},
+      "facts": {},
+      "id": 41
+    }
+  ]
+}

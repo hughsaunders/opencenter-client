@@ -1,0 +1,66 @@
+{
+  "schema": {
+    "name": {
+      "read_only": false,
+      "unique": false,
+      "primary_key": false,
+      "required": true,
+      "type": "VARCHAR(32)",
+      "updatable": true
+    },
+    "consequences": {
+      "read_only": false,
+      "unique": false,
+      "primary_key": false,
+      "default": [],
+      "required": false,
+      "type": "JSON",
+      "updatable": true
+    },
+    "args": {
+      "read_only": false,
+      "unique": false,
+      "primary_key": false,
+      "default": {},
+      "required": false,
+      "type": "JSON",
+      "updatable": true
+    },
+    "weight": {
+      "read_only": false,
+      "unique": false,
+      "primary_key": false,
+      "default": 50,
+      "required": false,
+      "type": "INTEGER",
+      "updatable": true
+    },
+    "timeout": {
+      "read_only": false,
+      "unique": false,
+      "primary_key": false,
+      "default": 30,
+      "required": false,
+      "type": "INTEGER",
+      "updatable": true
+    },
+    "id": {
+      "read_only": false,
+      "primary_key": true,
+      "nullable": false,
+      "required": true,
+      "updatable": true,
+      "unique": false,
+      "type": "INTEGER"
+    },
+    "constraints": {
+      "read_only": false,
+      "unique": false,
+      "primary_key": false,
+      "default": [],
+      "required": false,
+      "type": "JSON",
+      "updatable": true
+    }
+  }
+}

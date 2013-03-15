@@ -1,0 +1,360 @@
+{
+  "status": 200,
+  "message": "success",
+  "adventures": [
+    {
+      "dsl": [
+        {
+          "primitive": "run_chef",
+          "ns": {}
+        }
+      ],
+      "criteria": "backend='chef-client'\n",
+      "id": 1,
+      "name": "Run Chef"
+    },
+    {
+      "dsl": [
+        {
+          "primitive": "install_chef_server",
+          "ns": {}
+        },
+        {
+          "primitive": "node.add_backend",
+          "ns": {
+            "backend": "chef-server"
+          }
+        },
+        {
+          "primitive": "node.set_parent",
+          "ns": {
+            "parent": 3
+          }
+        },
+        {
+          "primitive": "node.set_attr",
+          "ns": {
+            "value": true,
+            "key": "locked"
+          }
+        },
+        {
+          "primitive": "download_cookbooks",
+          "ns": {
+            "CHEF_SERVER_COOKBOOK_CHANNELS": "current"
+          }
+        }
+      ],
+      "criteria": "('agent' in facts.backends) and (ifcount('chef-server') = 0)\n",
+      "id": 2,
+      "name": "Install Chef Server"
+    },
+    {
+      "dsl": [
+        {
+          "primitive": "node.add_backend",
+          "ns": {
+            "backend": "nova"
+          }
+        },
+        {
+          "primitive": "nova.create_cluster",
+          "ns": {}
+        }
+      ],
+      "criteria": "(id = 1) and (ifcount('chef-server') > 0)\n",
+      "id": 3,
+      "name": "Create Nova Cluster"
+    },
+    {
+      "dsl": [
+        {
+          "primitive": "node.set_attr",
+          "ns": {
+            "value": false,
+            "key": "locked"
+          }
+        },
+        {
+          "primitive": "nova-controller.make_infra_ha",
+          "ns": {}
+        }
+      ],
+      "criteria": "(count(filter('nodes', 'facts.parent_id = {id}')) < 2) and (facts.ha_infra = false) and ('container' in facts.backends)\n",
+      "id": 4,
+      "name": "Enable HA Infrastructure"
+    },
+    {
+      "dsl": [
+        {
+          "primitive": "download_cookbooks",
+          "ns": {}
+        }
+      ],
+      "criteria": "('chef-server' in facts.backends) and ('agent' in facts.backends) and (facts.chef_server_cookbook_channels)\n",
+      "id": 5,
+      "name": "Download Chef Cookbooks"
+    },
+    {
+      "dsl": [
+        {
+          "primitive": "subscribe_cookbook_channel",
+          "ns": {}
+        }
+      ],
+      "criteria": "('chef-server' in facts.backends) and ('agent' in facts.backends)\n",
+      "id": 6,
+      "name": "Subscribe Cookbook Channel"
+    },
+    {
+      "dsl": [
+        {
+          "primitive": "sleep",
+          "ns": {}
+        }
+      ],
+      "criteria": "count(filter('nodes', 'attrs.dev = true and id = 1')) = 1\n",
+      "id": 7,
+      "name": "Sleep"
+    },
+    {
+      "dsl": [
+        {
+          "primitive": "do_updates",
+          "ns": {
+            "SLEEP": 30,
+            "PACKAGE_NAME": "opencenter-server"
+          }
+        }
+      ],
+      "criteria": "(attrs.server-agent = true)\n",
+      "id": 8,
+      "name": "Update Server"
+    },
+    {
+      "dsl": [
+        {
+          "primitive": "do_updates",
+          "ns": {
+            "SLEEP": 30,
+            "PACKAGE_NAME": "opencenter-agent",
+            "DISABLE_RESTART": "true"
+          }
+        },
+        {
+          "primitive": "agent_restart",
+          "ns": {}
+        }
+      ],
+      "criteria": "('agent' in facts.backends)\n",
+      "id": 9,
+      "name": "Update Agent"
+    },
+    {
+      "dsl": [
+        {
+          "primitive": "nova.create_az",
+          "ns": {}
+        }
+      ],
+      "criteria": "('nova-compute' in facts.backends) and ('container' in facts.backends)\n",
+      "id": 10,
+      "name": "Create Availability Zone"
+    },
+    {
+      "dsl": [
+        {
+          "primitive": "openstack_disable_host",
+          "ns": {}
+        }
+      ],
+      "criteria": "(facts.maintenance_mode = none) and (facts.nova_role = 'nova-compute') and ('agent' in facts.backends)\n",
+      "id": 11,
+      "name": "Disable Scheduling on this Host"
+    },
+    {
+      "dsl": [
+        {
+          "primitive": "openstack_enable_host",
+          "ns": {}
+        }
+      ],
+      "criteria": "(facts.maintenance_mode != none) and (facts.nova_role = 'nova-compute') and ('agent' in facts.backends)\n",
+      "id": 12,
+      "name": "Enable Scheduling on this Host"
+    },
+    {
+      "dsl": [
+        {
+          "primitive": "openstack_evacuate_host",
+          "ns": {}
+        }
+      ],
+      "criteria": "(facts.nova_role = 'nova-compute') and ('agent' in facts.backends)\n",
+      "id": 13,
+      "name": "Evacuate Host"
+    },
+    {
+      "dsl": [
+        {
+          "primitive": "openstack_upload_images",
+          "ns": {}
+        }
+      ],
+      "criteria": "(facts.nova_role = 'nova-controller-master') and ('agent' in facts.backends)\n",
+      "id": 14,
+      "name": "Upload Initial Glance Images"
+    },
+    {
+      "dsl": [
+        {
+          "primitive": "install_chef",
+          "ns": {}
+        }
+      ],
+      "criteria": "('agent' in facts.backends) and (childof('unprovisioned')) and (ifcount('chef-server') > 0) and ('chef-client' ! in facts.backends) and (attrs.dev = true)\n",
+      "id": 15,
+      "name": "Install Chef Client"
+    },
+    {
+      "dsl": [
+        {
+          "primitive": "uninstall_chef",
+          "ns": {}
+        }
+      ],
+      "criteria": "('agent' in facts.backends) and (childof('unprovisioned')) and (ifcount('chef-server') > 0) and ('chef-client' in facts.backends) and (attrs.dev = true)\n",
+      "id": 16,
+      "name": "Uninstall Chef Client"
+    },
+    {
+      "dsl": [
+        {
+          "primitive": "uninstall_chef_server",
+          "ns": {}
+        }
+      ],
+      "criteria": "('chef-server' in facts.backends) and (attrs.dev = true)\n",
+      "id": 17,
+      "name": "Uninstall Chef Server"
+    },
+    {
+      "dsl": [
+        {
+          "primitive": "node.set_attr",
+          "ns": {
+            "value": "surf",
+            "key": "newquay"
+          }
+        }
+      ],
+      "criteria": "",
+      "id": 18,
+      "name": "setattradventure2"
+    },
+    {
+      "dsl": [
+        "dsl"
+      ],
+      "criteria": "true",
+      "id": 19,
+      "name": "testadventure"
+    },
+    {
+      "dsl": [
+        "dsl"
+      ],
+      "criteria": "true",
+      "id": 20,
+      "name": "testadventure"
+    },
+    {
+      "dsl": [
+        "dsl"
+      ],
+      "criteria": "true",
+      "id": 21,
+      "name": "testadventure"
+    },
+    {
+      "dsl": [
+        "dsl"
+      ],
+      "criteria": "true",
+      "id": 22,
+      "name": "testadventure"
+    },
+    {
+      "dsl": [
+        "dsl"
+      ],
+      "criteria": "true",
+      "id": 23,
+      "name": "testadventure"
+    },
+    {
+      "dsl": [
+        "dsl"
+      ],
+      "criteria": "true",
+      "id": 24,
+      "name": "testadventure"
+    },
+    {
+      "dsl": [
+        "dsl"
+      ],
+      "criteria": "true",
+      "id": 25,
+      "name": "testadventure"
+    },
+    {
+      "dsl": [
+        "dsl"
+      ],
+      "criteria": "true",
+      "id": 26,
+      "name": "testadventure"
+    },
+    {
+      "dsl": [
+        "dsl"
+      ],
+      "criteria": "true",
+      "id": 27,
+      "name": "testadventure"
+    },
+    {
+      "dsl": [
+        "dsl"
+      ],
+      "criteria": "true",
+      "id": 28,
+      "name": "testadventure"
+    },
+    {
+      "dsl": [
+        "dsl"
+      ],
+      "criteria": "true",
+      "id": 29,
+      "name": "testadventure"
+    },
+    {
+      "dsl": [
+        "dsl"
+      ],
+      "criteria": "true",
+      "id": 30,
+      "name": "testadventure"
+    },
+    {
+      "dsl": [
+        "dsl"
+      ],
+      "criteria": "true",
+      "id": 31,
+      "name": "testadventure"
+    }
+  ]
+}

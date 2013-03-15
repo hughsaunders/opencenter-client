@@ -1,0 +1,86 @@
+{
+  "schema": {
+    "completed": {
+      "read_only": false,
+      "primary_key": false,
+      "required": false,
+      "updatable": true,
+      "unique": false,
+      "type": "INTEGER"
+    },
+    "expires": {
+      "read_only": false,
+      "primary_key": false,
+      "required": false,
+      "updatable": true,
+      "unique": false,
+      "type": "INTEGER"
+    },
+    "submitted": {
+      "read_only": false,
+      "primary_key": false,
+      "required": false,
+      "updatable": false,
+      "unique": false,
+      "type": "INTEGER"
+    },
+    "payload": {
+      "read_only": false,
+      "primary_key": false,
+      "required": true,
+      "updatable": true,
+      "unique": false,
+      "type": "JSON"
+    },
+    "parent_id": {
+      "read_only": false,
+      "fk": "tasks.id",
+      "primary_key": false,
+      "required": false,
+      "updatable": true,
+      "unique": false,
+      "type": "INTEGER"
+    },
+    "state": {
+      "read_only": false,
+      "primary_key": false,
+      "required": false,
+      "updatable": true,
+      "unique": false,
+      "type": "VARCHAR(9)"
+    },
+    "node_id": {
+      "read_only": false,
+      "fk": "nodes.id",
+      "primary_key": false,
+      "required": true,
+      "updatable": true,
+      "unique": false,
+      "type": "INTEGER"
+    },
+    "result": {
+      "read_only": false,
+      "primary_key": false,
+      "required": false,
+      "updatable": true,
+      "unique": false,
+      "type": "JSON"
+    },
+    "action": {
+      "read_only": false,
+      "primary_key": false,
+      "required": true,
+      "updatable": true,
+      "unique": false,
+      "type": "VARCHAR(40)"
+    },
+    "id": {
+      "read_only": false,
+      "primary_key": true,
+      "required": true,
+      "updatable": false,
+      "unique": true,
+      "type": "INTEGER"
+    }
+  }
+}

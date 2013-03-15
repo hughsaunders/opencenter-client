@@ -1,0 +1,330 @@
+{
+  "status": 200,
+  "primitives": [
+    {
+      "name": "agent.run_task",
+      "weight": 50,
+      "args": {
+        "action": {
+          "required": true,
+          "type": "string"
+        },
+        "payload": {
+          "required": true,
+          "type": "json"
+        }
+      },
+      "timeout": 30,
+      "consequences": [],
+      "id": 2476848868,
+      "constraints": []
+    },
+    {
+      "name": "node.set_parent",
+      "weight": 50,
+      "args": {
+        "parent": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      "timeout": 30,
+      "consequences": [
+        "facts.parent_id := \"{parent}\""
+      ],
+      "id": 2812972358,
+      "constraints": []
+    },
+    {
+      "name": "nova-controller.add_backend",
+      "weight": 50,
+      "args": {},
+      "timeout": 30,
+      "consequences": [
+        "facts.backends := union(facts.backends, 'nova-controller')"
+      ],
+      "id": 2966211398,
+      "constraints": []
+    },
+    {
+      "name": "node.del_fact",
+      "weight": 50,
+      "args": {
+        "key": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      "timeout": 30,
+      "consequences": [],
+      "id": 3426416039,
+      "constraints": []
+    },
+    {
+      "name": "nova.create_cluster",
+      "weight": 50,
+      "args": {
+        "chef_server": {
+          "required": true,
+          "type": "interface",
+          "friendly": "Chef Server",
+          "name": "chef-server",
+          "description": "The chef server to use."
+        },
+        "osops_public": {
+          "description": "The CIDR of network to run public Nova services on (lb, etc).  An IP address from this network should be configured on all hosts in the Nova cluster.",
+          "default": "",
+          "placeholder": "192.168.200.0/24",
+          "required": true,
+          "type": "cidr",
+          "friendly": "Nova Public Network CIDR"
+        },
+        "nova_public_if": {
+          "description": "The network interface that is connected to the public (Internet/WAN) network on compute nodes.  Compute nodes will NAT instance traffic out from this interface unless a specific floating ip has been assigned to an instance.",
+          "default": "",
+          "placeholder": "eth0",
+          "required": true,
+          "type": "string",
+          "friendly": "Nova Public Network Interface"
+        },
+        "nova_vm_bridge": {
+          "description": "The bridge device that will be used as the VM bridge on compute nodes.  The default value is usually acceptable here.  This bridge will be created by Nova as necessary and does not need to be manually configured on the system.",
+          "default": "br100",
+          "placeholder": "br100",
+          "required": true,
+          "type": "string",
+          "friendly": "Nova VM Bridge Interface"
+        },
+        "nova_dmz_cidr": {
+          "description": "A comma separated list of CIDR network ranges that will be excluded from NAT rules.  This is useful for allowing direct communication to and from instances from other network ranges without the use of floating ips.",
+          "default": "",
+          "placeholder": "172.16.0.0/24",
+          "required": true,
+          "type": "cidr",
+          "friendly": "NAT Exclusion CIDRs"
+        },
+        "cluster_name": {
+          "description": "The name of your new Nova cluster.  This should be unique and composed of alphanumeric characters, -s, and _s.",
+          "default": "NovaCluster",
+          "placeholder": "NovaCluster",
+          "required": true,
+          "type": "string",
+          "friendly": "Nova Cluster Name"
+        },
+        "keystone_admin_pw": {
+          "description": "The password for the OpenStack administrative user.",
+          "default": "",
+          "placeholder": "secret",
+          "required": true,
+          "type": "password",
+          "friendly": "OpenStack Admin Password"
+        },
+        "libvirt_type": {
+          "default": "kvm",
+          "required": true,
+          "type": "string",
+          "friendly": "Virtualization Type",
+          "description": "libvirt virtualization type.  Usually qemu or kvm."
+        },
+        "osops_mgmt": {
+          "description": "The CIDR of network on which internal Nova management services such as API services will run.  An IP address from this network should be configured on all hosts in the nova cluster.",
+          "default": "",
+          "placeholder": "192.168.200.0/24",
+          "required": true,
+          "type": "cidr",
+          "friendly": "Nova Management Network CIDR"
+        },
+        "nova_vm_fixed_if": {
+          "description": "The network interface of the VM network on compute nodes.",
+          "default": "",
+          "placeholder": "eth1",
+          "required": true,
+          "type": "string",
+          "friendly": "VM Network Interface"
+        },
+        "nova_vm_fixed_range": {
+          "description": "IP addresses will be allocated from this network by Nova to instances and compute hosts as necessary.  This network should be dedicated to OpenStack and not shared with other services.",
+          "default": "",
+          "placeholder": "192.168.0.0/24",
+          "required": true,
+          "type": "cidr",
+          "friendly": "VM Network CIDR"
+        },
+        "osops_nova": {
+          "description": "The CIDR of network to run services used by Nova internally, such as RabbitMQ and Mysql.  An IP address from this network should be configured on all hosts in the Nova cluster.",
+          "default": "",
+          "placeholder": "192.168.200.0/24",
+          "required": true,
+          "type": "cidr",
+          "friendly": "Nova Internal Network CIDR"
+        }
+      },
+      "timeout": 30,
+      "consequences": [],
+      "id": 1149323816,
+      "constraints": [
+        "ifcount('chef-server') > 0"
+      ]
+    },
+    {
+      "name": "nova-controller.make_infra_ha",
+      "weight": 50,
+      "args": {
+        "nova_rabbitmq_vip": {
+          "description": "The VIP for rabbitmq endpoint",
+          "default": "",
+          "placeholder": "192.168.200.253",
+          "required": true,
+          "type": "string",
+          "friendly": "RabbitMQ Service VIP"
+        },
+        "nova_api_vip": {
+          "description": "The VIP for nova api endpoints",
+          "default": "",
+          "placeholder": "192.168.200.254",
+          "required": true,
+          "type": "string",
+          "friendly": "Nova API VIP"
+        },
+        "nova_mysql_vip": {
+          "description": "The VIP for mysql endpoint",
+          "default": "",
+          "placeholder": "192.168.200.252",
+          "required": true,
+          "type": "string",
+          "friendly": "MySQL Service VIP"
+        }
+      },
+      "timeout": 30,
+      "consequences": [],
+      "id": 2629923081,
+      "constraints": []
+    },
+    {
+      "name": "node.set_fact",
+      "weight": 50,
+      "args": {
+        "value": {
+          "required": true,
+          "type": "string"
+        },
+        "key": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      "timeout": 30,
+      "consequences": [
+        "facts.{key} := \"{value}\""
+      ],
+      "id": 855929522,
+      "constraints": []
+    },
+    {
+      "name": "nova.create_az",
+      "weight": 50,
+      "args": {
+        "az_name": {
+          "default": "nova",
+          "required": true,
+          "type": "string",
+          "friendly": "Create Availability Zone",
+          "description": "The name of the availability zone to create.  This should be unique to the Nova Cluster."
+        },
+        "libvirt_type": {
+          "default": "kvm",
+          "required": true,
+          "type": "string",
+          "friendly": "Virtualization Type",
+          "description": "libvirt virtualization type.  Usually qemu or kvm."
+        }
+      },
+      "timeout": 30,
+      "consequences": [],
+      "id": 1775927188,
+      "constraints": [
+        "'nova-compute' in facts.backends"
+      ]
+    },
+    {
+      "name": "node.add_backend",
+      "weight": 50,
+      "args": {
+        "backend": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      "timeout": 30,
+      "consequences": [
+        "facts.backends := union(facts.backends, \"{backend}\")"
+      ],
+      "id": 1969812406,
+      "constraints": []
+    },
+    {
+      "name": "chef-client.add_backend",
+      "weight": 50,
+      "args": {},
+      "timeout": 30,
+      "consequences": [],
+      "id": 2658109737,
+      "constraints": [
+        "false"
+      ]
+    },
+    {
+      "name": "node.set_attr",
+      "weight": 50,
+      "contraints": [],
+      "args": {
+        "value": {
+          "required": true,
+          "type": "string"
+        },
+        "key": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      "timeout": 30,
+      "consequences": [],
+      "id": 2091203721
+    },
+    {
+      "name": "chef-client.converge_chef",
+      "consequences": [
+        "facts.converged := true"
+      ],
+      "args": {},
+      "weight": 25,
+      "timeout": 30,
+      "id": 3152693401,
+      "constraints": []
+    },
+    {
+      "name": "node.del_attr",
+      "weight": 50,
+      "args": {
+        "key": {
+          "required": true,
+          "type": "string"
+        }
+      },
+      "timeout": 30,
+      "consequences": [],
+      "id": 133616476,
+      "constraints": []
+    },
+    {
+      "name": "nova-controller.rollback_unlock_parent",
+      "weight": 50,
+      "args": {},
+      "timeout": 30,
+      "consequences": [],
+      "id": 68067743,
+      "constraints": []
+    }
+  ],
+  "message": "success"
+}
