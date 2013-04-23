@@ -614,11 +614,9 @@ class OpenCenterShell():
             # None of the lookup methods succeeded, so property path must
             # be invalid.
             raise ValueError(
-                'Cannot resolve "%s" from property string "%s" for'
-                ' %s' % (
+                'Cannot resolve "%s" from property string "%s" for' % (
                     path_section,
-                    path,
-                    original_item.name
+                    path
                 )
             )
         return item
@@ -721,7 +719,10 @@ class OpenCenterShell():
             for path in args.property:
                 try:
                     properties.append(str(self.property_lookup(path, item)))
-                except ValueError:
+                except ValueError as e:
+                    if len(args.property) == 1:
+                        print e.message
+                        return
                     properties.append("_")
             print ",".join(properties)
 
